@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/style.css">
+    <title>autoshop</title>
+</head>
+
+<body>
+    <div id="header-placeholder"></div>
+
+    <main>
+        <div class="container-main status-page-main">
+            <div class="status-container">
+                <h1 class="status-page-title">Проверка статуса заказа</h1>
+                <p class="status-page-desc">Введите номер вашего заказа, который вы получили при оформлении
+                    <br>(например: n22nm33)</p>
+
+                <form id="statusForm" class="status-input-group">
+                    <input type="text" id="orderIdInput" class="status-input" placeholder="Номер заказа" required>
+                    <button type="submit" class="status-btn" id="checkBtn">Проверить</button>
+                </form>
+                <div id="resultBlock" class="is-hidden">
+                    <h3 class="status-result-title">Информация о заказе</h3>
+                    <p class="status-result-line"><strong>Заказ:</strong> #<span id="resOrderId"></span></p>
+                    <p class="status-result-line"><strong>Дата оформления:</strong> <span id="resOrderDate"></span></p>
+                    <p class="status-result-line"><strong>Сумма к оплате:</strong> <span id="resOrderTotal"></span> ₽
+                    </p>
+                    <div id="trackingBlock" class="status-tracking-block is-hidden">
+                        <strong class="status-tracking-label">Код отслеживания (ТК):</strong>
+                        <span id="resTrackingCode" class="status-tracking-code"></span>
+                    </div>
+
+                    <div class="status-result-status">
+                        <span class="status-label">Текущий статус:</span>
+                        <div id="resOrderStatus" class="status-badge"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <div id="footer-placeholder"></div>
+
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="js/supabase-config.js"></script>
+    <script src="js/api.js"></script>
+    <script src="js/cart.js"></script>
+    <script src="js/load-components.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/pages/status-page.js"></script>
+</body>
+
+</html>

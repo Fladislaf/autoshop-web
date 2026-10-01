@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/style.css">
+    <title>autoshop</title>
+</head>
+
+<body>
+    <div id="header-placeholder"></div>
+
+    <main class="parts-page">
+        <div class="container-main">
+
+            <div class="car-active-panel desktop-only" id="carActivePanel">
+                <div class="car-active-panel__info">
+                    <div class="car-active-panel__icon"></div>
+                    <div class="car-active-panel__breadcrumbs">
+                        </div>
+                </div>
+                <button class="btn-outline" id="btnChangeCarDesktop" type="button">Изменить автомобиль</button>
+            </div>
+            <div class="mobile-parts-header desktop-hidden" id="mobileCarPanel">
+                <div class="mobile-car-card">
+                    <div class="mobile-car-card__top">
+                        <div class="mobile-car-card__title">
+                            </div>
+                        <button class="mobile-car-card__change-btn" id="btnChangeCarMobile" type="button">Изменить</button>
+                    </div>
+                    
+                    <div class="mobile-car-card__bottom">
+                        <div class="mobile-car-card__gen">
+                            <strong></strong>
+                            <a href="#" id="btnRefineBodyMobile">Уточнить кузов</a>
+                        </div>
+                        <div class="mobile-car-card__engine">
+                            <button class="btn-text-blue" id="btnSelectEngineMobile" type="button">Выбрать двигатель</button>
+                        </div>
+                    </div>
+                </div>
+
+                <button class="mobile-category-btn" id="btnOpenCategories" type="button">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7"></rect><rect x="14" y="3" width="7" height="7"></rect><rect x="14" y="14" width="7" height="7"></rect><rect x="3" y="14" width="7" height="7"></rect></svg>
+                    Выбрать категорию
+                </button>
+            </div>
+
+            <div class="text-search-panel is-hidden" id="textSearchPanel">
+                <h1 class="text-search-panel__title">Поиск по названию или номеру запчасти</h1>
+                <div class="text-search-panel__row">
+                    <input type="text" id="pageTextInput" class="form-input text-search-panel__input" placeholder="Например: двигатель">
+                    <button class="btn-primary text-search-panel__btn" id="btnPageTextSearch">Найти</button>
+                </div>
+                </div>
+
+            <div class="catalog-header catalog-header--spaced" id="catalogTitlesBlock">
+                <div class="catalog-header__text">
+                    <div class="breadcrumbs breadcrumbs--spaced">
+                        </div>
+                    <h1 class="catalog-title"></h1>
+                    <div class="catalog-count"></div>
+                </div>
+            </div>
+
+            <div class="catalog-layout">
+                <aside class="catalog-sidebar parts-sidebar" id="mobileCategoryMenu">
+                    <div class="sidebar-mobile-header desktop-hidden">
+                        <h2>Категории запчастей</h2>
+                        <button class="close-filters-btn" id="btnCloseCategories" type="button">&times;</button>
+                    </div>
+                    <div class="category-search">
+                        <input type="text" class="form-input category-search__input" placeholder="Быстрый поиск">
+                    </div>
+                    <ul class="category-list"></ul>
+                </aside>
+
+                <div class="catalog-content">
+                    <div class="catalog-sort-row">
+                        <select class="sort-select">
+                            <option value="cheap">Сначала дешевле</option>
+                            <option value="expensive">Сначала дороже</option>
+                        </select>
+                    </div>
+
+                    <div class="catalog-grid"></div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <div class="modal-overlay" id="modalChangeCar">
+        <div class="modal-container modal-car">
+            <div class="modal-header">
+                <div class="modal-car__breadcrumbs" id="modalDesktopBreadcrumbs">
+                    <span class="car-icon-mini">🚗</span>
+                    <span class="current">Выберите марку</span>
+                </div>
+                <button class="modal-close" id="btnCloseModalCar" type="button">&times;</button>
+            </div>
+
+            <div class="modal-body modal-car__columns">
+                <div class="car-col">
+                    <input type="text" class="form-input car-col__search" placeholder="Поиск марки...">
+                    <ul class="car-col__list" id="modalMakeList"></ul>
+                </div>
+
+                <div class="car-col">
+                    <input type="text" class="form-input car-col__search" placeholder="Поиск модели...">
+                    <ul class="car-col__list" id="modalModelList"></ul>
+                </div>
+
+                <div class="car-col">
+                    <input type="text" class="form-input car-col__search" placeholder="Поиск кузова...">
+                    <ul class="car-col__list list-with-desc" id="modalGenList"></ul>
+                </div>
+
+                <div class="car-col">
+                    <input type="text" class="form-input car-col__search" placeholder="Поиск двигателя...">
+                    <ul class="car-col__list list-with-icons" id="modalEngineList"></ul>
+                </div>
+            </div>
+
+            <div class="modal-footer">
+                <button class="btn-text btn-text--muted" id="btnResetModalCar" type="button">Сбросить
+                    фильтры</button>
+                <div class="modal-footer__actions">
+                    <button class="btn-outline" id="btnCancelModalCar" type="button">Отменить</button>
+                    <button class="btn-primary btn-apply-car" id="btnApplyCarChange" type="button">Показать запчасти</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="mobile-modal-fullscreen desktop-hidden" id="mobileModalChangeCar">
+
+        <div class="mm-dark-header">
+            <div class="mm-top-bar">
+                <h2>Ваш автомобиль</h2>
+                <button class="mm-close" id="btnCloseMobileModalCar" type="button">&times;</button>
+            </div>
+
+            <div class="mm-steps" id="mobileModalSteps">
+                <div class="mm-current-step">Загрузка...</div>
+            </div>
+        </div>
+
+        <div class="mm-white-body">
+            <ul class="mm-options-list" id="mobileModalList"></ul>
+        </div>
+
+        <div class="mm-footer">
+            <button class="btn-primary mm-btn-submit" id="btnApplyMobileCarChange" type="button">Показать
+                запчасти</button>
+        </div>
+
+    </div>
+
+    </div>
+
+    <div id="footer-placeholder"></div>
+</body>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="js/supabase-config.js"></script>
+<script src="js/api.js"></script>
+<script src="js/ui.js"></script>
+<script src="js/pages/zapchasti-page.js"></script>
+<script src="js/load-components.js"></script>
+<script src="js/cart.js"></script>
+<script src="js/main.js"></script>
+</body>
+
+</html>

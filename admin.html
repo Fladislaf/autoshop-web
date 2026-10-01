@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>autoshop</title>
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/fonts.css">
+    <link rel="stylesheet" href="css/admin.css">
+</head>
+
+<body>
+    <div id="login-screen">
+        <div class="login-box">
+            <h2 class="login-box__title">Вход в админ-панель</h2>
+            <p class="login-box__subtitle">Введите данные владельца</p>
+
+            <form id="login-form" class="login-form" onsubmit="AdminApp.handleLogin(event)">
+                <input type="email" id="login-email" class="login-input" required placeholder="Email">
+                <input type="password" id="login-password" class="login-input" required placeholder="Пароль">
+                <button type="submit" id="login-btn" class="login-btn">Войти</button>
+            </form>
+
+            <div id="login-error" class="login-error is-hidden">Неверный логин или пароль</div>
+        </div>
+    </div>
+
+
+    <div class="admin-layout is-hidden" id="admin-layout">
+        <div class="admin-overlay" id="adminOverlay"></div>
+        <aside class="admin-sidebar">
+            <div class="admin-logo">AutoshopAdmin</div>
+            <nav class="admin-nav" id="adminNav">
+                <a href="#" class="admin-nav__link is-active" data-page="orders">Заказы</a>
+                <a href="#" class="admin-nav__link" data-page="parts">Запчасти</a>
+                <a href="#" class="admin-nav__link" data-page="wheels">Шины и Диски</a>
+                <a href="#" class="admin-nav__link" data-page="dicts">Справочники</a>
+
+                <a href="#" class="admin-nav__link admin-nav__link--section" data-page="guide">Инструкция</a>
+
+                <a href="#" onclick="AdminApp.handleLogout(event)" class="admin-nav__link admin-nav__link--logout">Выйти из панели</a>
+
+                <a href="index.html" class="admin-nav__link admin-nav__link--site">Вернуться на сайт</a>
+            </nav>
+        </aside>
+
+        <main class="admin-main">
+            <header class="admin-header">
+                <button class="mobile-menu-btn" id="mobileMenuBtn">☰</button>
+                <h1 id="admin-page-title">Управление заказами</h1>
+            </header>
+
+            <div class="admin-content" id="admin-content">
+                <div class="adm-loading adm-loading--muted">Загрузка данных...</div>
+            </div>
+        </main>
+    </div>
+</body>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="js/supabase-config.js"></script>
+<script src="js/api.js"></script>
+<script src="js/admin-core.js"></script>
+
+</html>

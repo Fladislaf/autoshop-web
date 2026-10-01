@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/style.css">
+    <title>autoshop</title>
+</head>
+
+<body>
+    <div class="wrapper">
+        <div id="header-placeholder"></div>
+
+        <main>
+            <section class="banner">
+                <div class="container-main">
+                    <div class="banner__inner">
+                        
+                        <img class="banner__img" src="/img/banner.png" alt="баннер">
+                    </div>
+                </div>
+            </section>
+
+            <section class="car-search-section">
+                <div class="container-main">
+                    <h2 class="section-title">Поиск автозапчастей</h2>
+
+                    <div class="car-search-card">
+                        <div class="search-controls" id="searchControls">
+
+                            <div class="search-box is-active" id="boxMake">
+                                <div class="search-box__main">
+                                    <span class="search-box__text" id="textMake">Выберите марку</span>
+                                    <span class="search-box__arrow">▼</span>
+                                </div>
+                                <div class="search-dropdown" id="dropdownMake"></div>
+                                <button class="search-box__change" id="changeMake">Изменить</button>
+                            </div>
+
+                            <div class="search-box is-disabled" id="boxModel">
+                                <div class="search-box__main">
+                                    <span class="search-box__text" id="textModel">Выберите модель</span>
+                                    <span class="search-box__arrow">▼</span>
+                                </div>
+                                <div class="search-dropdown" id="dropdownModel"></div>
+                                <button class="search-box__change" id="changeModel">Изменить</button>
+                            </div>
+
+                            <div class="search-box is-disabled" id="boxGen">
+                                <div class="search-box__main">
+                                    <span class="search-box__text" id="textGen">Выберите поколение</span>
+                                    <span class="search-box__arrow">▼</span>
+                                </div>
+                                <div class="search-dropdown" id="dropdownGen"></div>
+                                <button class="search-box__change" id="changeGen">Изменить</button>
+                            </div>
+
+                            <button class="btn-primary search-btn" type="button">Найти запчасти</button>
+                        </div>
+
+                        <div class="mobile-search-wrapper" id="mobileSearchWrapper">
+                            <input type="text" id="carSearchInput" class="form-input" placeholder="Поиск...">
+                        </div>
+
+                        <div class="search-content" id="searchContent">
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="latest-products">
+                <div class="container-main">
+                    <h2 class="section-title">Последние добавленные товары</h2>
+
+                    <div class="slider-wrapper">
+
+                        <button class="slider-btn slider-btn--prev" id="prevBtn" type="button">❮</button>
+
+                        <div class="products-slider" id="productsSlider">
+                            
+                        </div>
+
+                        <button class="slider-btn slider-btn--next" id="nextBtn" type="button">❯</button>
+
+                        <div class="slider-dots" id="sliderDots">
+                            <button class="slider-dot is-active" data-index="0" type="button"></button>
+                            <button class="slider-dot" data-index="1" type="button"></button>
+                            <button class="slider-dot" data-index="2" type="button"></button>
+                        </div>
+
+                    </div>
+                </div>
+            </section>
+
+            <section class="contacts-section">
+                <div class="container-main">
+                    <h2 class="section-title">Контакты</h2>
+
+                    <div class="contacts__inner">
+                        <div class="contacts__info">
+                            <h3 class="contacts__city">Усть-Калманка</h3>
+                            <ul class="contacts__list">
+                                <li class="contacts__item contacts__item--address">
+                                    с.Усть-Калманка, ул.Ленина 91
+                                </li>
+                                <li class="contacts__item contacts__item--phone">
+                                    <a href="tel:+73852501028">+7 (3852)00-00-00</a><br>
+                                    <a href="tel:+79237762022">+7 900 000-00-00</a>
+                                    <span class="contacts__messengers">/ Max, Telegram</span>
+                                </li>
+                                <li class="contacts__item contacts__item--time">
+                                    Пн-Пт с 9:00 до 18:00; Сб с 9:00 до 15:00;
+                                </li>
+                            </ul>
+                        </div>
+
+                        <div class="contacts__map">
+                            <iframe
+                                src="https://yandex.ru/map-widget/v1/?um=constructor%3Af47e84170c62320ea994e8498b1bd6541cfe3df127bd33742794ec63126f5fcc&amp;source=constructor"
+                                width="100%" height="100%" frameborder="0"></iframe>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="about-section">
+                <div class="container-main">
+                    <h2 class="about__title">Autoshop — Контрактные автозапчасти из Японии</h2>
+                    <p class="about__text">Контрактные автозапчасти из Японии.</p>
+                </div>
+            </section>
+        </main>
+
+
+        <div id="footer-placeholder"></div>
+</body>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="js/supabase-config.js"></script>
+<script src="js/api.js"></script>
+<script src="js/ui.js"></script>
+<script src="js/pages/index-page.js"></script>
+<script src="js/load-components.js"></script>
+<script src="js/cart.js"></script>
+<script src="js/main.js"></script>
+
+</html>
